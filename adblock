@@ -5,7 +5,10 @@ then
 	echo "Use script as root"
 	exit 1
 fi
+path=$PWD
+cd /data/bind9
 ./update_file.sh
 /usr/local/bin/docker-compose restart 1>/dev/null 2>&1
 sleep 60
 ./merge_file.sh
+cd $path
