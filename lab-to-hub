@@ -1,0 +1,1 @@
+docker run -i --rm -v "/data/divers/lab-to-hub:/root/lab-to-hub" -v "/root/.ssh:/root/.ssh" python:3.6.1 bash /root/lab-to-hub/exec.sh

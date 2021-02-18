@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -i --rm --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -v "/var/www/letsencrypt:/var/www/letsencrypt" certbot/certbot "$@"
