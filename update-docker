@@ -1,0 +1,19 @@
+#! /bin/bash
+
+if [ ! "$1"  ]
+then
+	>&2 echo 'Please enter name of dir'
+	exit 1
+fi
+if cd /data/$1 > /dev/null 2>&1
+then
+	OPWD=$PWD
+	cd /data/$1
+	docker-compose pull 2>&1
+	docker-compose down 2>&1
+	docker-compose up -d 2>&1
+	docker image prune --force 2>&1
+	cd $OPWD
+else
+	>&2 echo "Directory '$1' doesn't exist"
+fi
